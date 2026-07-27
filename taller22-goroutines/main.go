@@ -30,3 +30,14 @@ func processOrders(orders []*Order) {
 		fmt.Printf("Procesando orden %d\n", order.ID)
 	}
 }
+func updateOrderStatuses(orders []*Order) {
+	for _, order := range orders {
+		time.Sleep(time.Duration(rand.Intn(500)) * time.Millisecond)
+		status := []string{
+			"Procesando", "Despachando", "Entregado",
+		}[rand.Intn(3)]
+		order.Status = status
+		fmt.Printf("Actualizando orden %d con estado: %s\n",
+			order.ID, status)
+	}
+}
