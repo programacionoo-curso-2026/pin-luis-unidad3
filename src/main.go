@@ -1,10 +1,26 @@
-// Punto de entrada del taller
-// Reemplaza este archivo con tu código (Go, Java, Python, etc. según indique el docente)
-
 package main
 
-import "fmt"
+import (
+  "fmt"
+  "math/rand"
+  "time"
+)
+
+type Order struct {
+  ID     int
+  Status string
+}
 
 func main() {
-	fmt.Println("Taller de POO — [tu nombre]")
+  orders := generateOrders(20)
+  fmt.Print("Todas las operaciones completadas. Finalizando\n")
+}
+func generateOrders(count int) []*Order {
+  orders := make([]*Order, count)
+  for i := 0; i < count; i++ {
+    orders[i] = &Order{
+      ID: i + 1, Status: "pending",
+    }
+  }
+  return orders
 }
