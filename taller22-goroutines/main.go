@@ -41,3 +41,10 @@ func updateOrderStatuses(orders []*Order) {
 			order.ID, status)
 	}
 }
+func main() {
+	orders := generateOrders(20)
+	processOrders(orders)
+	updateOrderStatuses(orders)
+	reportOrderStatus(orders)
+	fmt.Print("Todas las operaciones completadas. Finalizando\n")
+}
