@@ -48,3 +48,16 @@ func main() {
 	reportOrderStatus(orders)
 	fmt.Print("Todas las operaciones completadas. Finalizando\n")
 }
+func main() {
+
+	orders := generateOrders(20)
+
+	go processOrders(orders)
+
+	go updateOrderStatuses(orders)
+
+	go reportOrderStatus(orders)
+
+	fmt.Print("Todas las operaciones completadas. Saliendo")
+
+}
